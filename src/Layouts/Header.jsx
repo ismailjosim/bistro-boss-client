@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
-import logo from '../assets/logo.png';
 import { NavLink, Link } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider';
+
 
 const Header = () => {
     const { user, userLogout } = useContext(AuthContext)
 
-    const style = "hover:text-white hover:bg-primary uppercase font-semibold transition-all duration-500 rounded-lg"
+    const style = "hover:text-white hover:text-primary uppercase font-medium transition-all duration-500 btn-ghost"
 
 
 
     const menuItems = <>
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
-        <li><NavLink className={ style } to='/alltoys'>All Toys</NavLink></li>
-        <li><NavLink className={ style } to='/mytoys'>My Toys</NavLink></li>
-        <li><NavLink className={ style } to='/blog'>Blog</NavLink></li>
+        <li><NavLink className={ style } to='/alltoys'>Contact US</NavLink></li>
+        <li><NavLink className={ style } to='/mytoys'>Dashboard</NavLink></li>
+        <li><NavLink className={ style } to='/blog'>our menu</NavLink></li>
+        <li><NavLink className={ style } to='/blog'>our shop</NavLink></li>
     </>
 
     const handleUserRemove = () => {
@@ -28,16 +29,15 @@ const Header = () => {
         <div className="navbar bg-base-100 h-20 font-semibold w-11/12 mx-auto">
 
             <div className="navbar-start">
-                <Link to="/" className='flex items-center gap-2'>
-                    <img src={ logo } width={ 100 } alt="Master Chef" />
+                <Link to="/" className='flex flex-col justify-center'>
+                    <span className="font-cinzel font-black md:text-2xl text-lg lg:text-3xl ">BISTRO BOSS</span>
+                    <span className="font-cinzel hidden lg:inline md:inline md:tracking-widest lg:tracking-[.5rem] font-semibold text-2xl">Restaurant</span>
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
+            <div className="navbar-end ">
+                <ul className="menu menu-horizontal p-0 hidden lg:flex">
                     { menuItems }
                 </ul>
-            </div>
-            <div className="navbar-end">
                 { user?.email ?
                     <div className='flex gap-3 items-center dropdown dropdown-bottom dropdown-end'>
                         <div tabIndex={ 0 } className="tooltip tooltip-left tooltip-primary" data-tip={ user.displayName }>
