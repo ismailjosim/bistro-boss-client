@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"title": "Tasty Delights from Our Kitchen to Your Plate",
+		"thumbnail": "https://i.ibb.co/NTG0nT9/slide-image-01.jpg"
+	},
+	{
+		"id": 2,
+		"title": "Discover the Art of Fine Dining with Our Master Chef",
+		"thumbnail": "https://i.ibb.co/Yhsfj97/slide-image-02.jpg"
+	},
+	{
+		"id": 3,
+		"title": "Indulge in Gourmet Cuisine with Our Exquisite Menu",
+		"thumbnail": "https://i.ibb.co/PgfXXc8/slide-image-03.jpg"
+	},
+	{
+		"id": 4,
+		"title": "Experience the Best of Global Flavors with Our Culinary Experts",
+		"thumbnail": "https://i.ibb.co/z4s4Bzw/slide-image-04.jpg"
+	},
+	{
+		"id": 5,
+		"title": "Savor the Flavors of Seasonal Ingredients with Our Creative Recipes",
+		"thumbnail": "https://i.ibb.co/RjkKsk7/slide-image-05.jpg"
+	}
+]
