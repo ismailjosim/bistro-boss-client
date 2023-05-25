@@ -109,13 +109,12 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 text-left">
                         <div>
                             <strong className="font-medium text-gray-900"> Services </strong>
-
                             <nav
                                 aria-label="Footer Services Nav"
-                                className="mt-6 flex flex-col space-y-1"
+                                className="mt-6 flex flex-col items-start space-y-1"
                             >
                                 <button className="text-gray-700 transition hover:text-gray-700/75">
                                     Marketing
@@ -137,7 +136,7 @@ const Footer = () => {
 
                             <nav
                                 aria-label="Footer About Nav"
-                                className="mt-6 flex flex-col space-y-1"
+                                className="mt-6 flex flex-col items-start space-y-1"
                             >
                                 <button className="text-gray-700 transition hover:text-gray-700/75">
                                     About
@@ -159,7 +158,7 @@ const Footer = () => {
 
                             <nav
                                 aria-label="Footer Support Nav"
-                                className="mt-6 flex flex-col space-y-1"
+                                className="mt-6 flex flex-col items-start space-y-1"
                             >
                                 <button className="text-gray-700 transition hover:text-gray-700/75">
                                     FAQs
