@@ -1,12 +1,12 @@
 import React from 'react';
-import Hero from '../components/Home/Hero';
-
+import Slider from '../components/Home/Slider';
+import '../CSS/custom.css'
 
 
 const Home = () => {
     return (
         <>
-            <Hero />
+            <Slider />
         </>
     );
 };
