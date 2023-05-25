@@ -5,9 +5,14 @@ import 'react-slideshow-image/dist/styles.css';
 
 const Categories = () => {
     const images = [
-        "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-        "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-        "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+        "https://i.ibb.co/nQ8xhBp/category08.jpg",
+        "https://i.ibb.co/zQqqRXM/category07.jpg",
+        "https://i.ibb.co/Ssc5XRv/category06.jpg",
+        "https://i.ibb.co/grVp3T1/category05.jpg",
+        "https://i.ibb.co/27fFxWP/category04.jpg",
+        "https://i.ibb.co/BGwK5VJ/category03.jpg",
+        "https://i.ibb.co/qF4zK1w/category02.jpg",
+        "https://i.ibb.co/DgBHBdt/category01.jpg"
     ];
 
     return (
@@ -23,18 +28,20 @@ const Categories = () => {
                     infinite={ true }
                 >
                     { images.map((item, index) => {
-                        return <div key={ index } className="each-slide-effect">
-                            <div style={ {
-                                'backgroundImage': `url(${ item })`,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                backgroundSize: 'cover',
-                                height: '350px',
-                                margin: '0 1rem'
-                            } }>
+                        return <div style={ {
+                            'backgroundImage': `url(${ item })`,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'flex-end',
+                            backgroundSize: 'cover',
+                            height: '350px',
+                            margin: '0 1rem'
+                        } }>
+                            <div className='bg-black/40 text-white py-2 w-full text-center text-2xl font-medium uppercase'>
+                                <h3 className=''>Salad</h3>
                             </div>
                         </div>
+
                     }) }
                 </Slide>
             </div>
