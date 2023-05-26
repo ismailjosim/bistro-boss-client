@@ -4,10 +4,10 @@ import '../CSS/custom.css'
 const SectionHeading = ({ primary, secondary }) => {
     return (
         <div className='text-center'>
-            <p className='text-primary text-[20px]'>
-                <span>--</span>
+            <p className='text-primary text-lg'>
+                <span>---</span>
                 <span>{ primary }</span>
-                <span>--</span>
+                <span>---</span>
             </p>
             <div className='inline-block pt-5'>
                 <span className='border-2 w-full block'></span>

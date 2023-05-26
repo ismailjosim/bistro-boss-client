@@ -43,7 +43,7 @@ const Categories = () => {
 
     return (
         <section className='w-11/12 mx-auto'>
-            <SectionHeading primary={ "Check it out" } secondary={ "FROM OUR MENU" } />
+            <SectionHeading primary={ "From 11:00am to 10:00pm" } secondary={ "ORDER ONLINE" } />
             <div className='my-10'>
                 <Slide
                     indicators={ true }
