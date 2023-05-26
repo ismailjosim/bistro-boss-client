@@ -28,9 +28,9 @@ const Hero = () => {
                         key={ idx }
                         style={ {
                             backgroundImage: `url(${ thumbnail })`,
-                            backgroundSize: 'cover', // set a fixed background size
-                            height: 'calc(100vh - 4rem)', // set the height based on screen size
-                            maxHeight: '90vh', // limit the max height to 90% of the screen on large screens
+                            backgroundSize: 'cover',
+                            height: 'calc(100vh - 4rem)',
+                            maxHeight: '90vh'
                         } }
                         className="relative bg-no-repeat"
                     >
