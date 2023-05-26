@@ -4,6 +4,7 @@ import '../CSS/custom.css'
 import Categories from '../components/Home/Categories';
 import CTA from '../components/Home/CTA';
 import Menu from '../components/Home/Menu';
+import Info from '../components/Home/Info';
 
 
 const Home = () => {
@@ -11,8 +12,10 @@ const Home = () => {
         <>
             <Slider />
             <Categories />
-            <CTA />
+            <Info />
             <Menu />
+            <CTA />
+
         </>
     );
 };
