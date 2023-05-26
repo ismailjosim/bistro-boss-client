@@ -59,13 +59,10 @@ const Menu = () => {
 
     return (
         <section>
-            <SectionHeading primary={ "Check it out" } secondary={ "FROM OUR MENU" } />
-
-
+            <SectionHeading primary={ "Check it out" } secondary={ "OUR Popular MENU" } />
             <div className='my-10 w-11/12 mx-auto'>
                 { content }
             </div>
-
         </section>
     );
 };
