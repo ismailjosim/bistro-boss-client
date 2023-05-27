@@ -6,9 +6,7 @@ import 'react-slideshow-image/dist/styles.css';
 const Categories = () => {
     const data = [
         { picture: "https://i.ibb.co/nQ8xhBp/category08.jpg", title: "Cheeseburger Deluxe" },
-        {
-            picture: "https://i.ibb.co/zQqqRXM/category07.jpg", title: "Chicken Sandwich"
-        },
+        { picture: "https://i.ibb.co/zQqqRXM/category07.jpg", title: "Chicken Sandwich" },
         { picture: "https://i.ibb.co/Ssc5XRv/category06.jpg", title: "Bacon Burger" },
         { picture: "https://i.ibb.co/grVp3T1/category05.jpg", title: "Cheese Fries" },
         { picture: "https://i.ibb.co/27fFxWP/category04.jpg", title: "Chicken Nuggets" },

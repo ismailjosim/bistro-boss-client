@@ -6,6 +6,8 @@ import CTA from '../components/Home/CTA';
 import Menu from '../components/Home/Menu';
 import Info from '../components/Home/Info';
 import ChefsChoice from '../components/Home/ChefsChoice';
+import About from '../components/Home/About';
+
 
 
 const Home = () => {
@@ -17,6 +19,7 @@ const Home = () => {
             <Menu />
             <CTA />
             <ChefsChoice />
+            <About />
         </main>
     );
 };
