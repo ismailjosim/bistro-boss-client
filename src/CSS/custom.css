@@ -7,3 +7,8 @@
 .carousel-status {
     visibility: hidden;
 }
+
+.react-tabs__tab--selected {
+    border-color: #D99904 !important;
+    color: #D99904 !important;
+}
