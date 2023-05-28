@@ -34,19 +34,10 @@ const Header = () => {
     const largeDeviceMenuItems = <>
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
         <li><NavLink className={ style } to='/menu'>our menu</NavLink></li>
+        <li><NavLink className={ style } to='/shop'>our shop</NavLink></li>
         <li><NavLink className={ style } to='/mytoys'>Dashboard</NavLink></li>
         <li><NavLink className={ style } to='/blog'>our menu</NavLink></li>
-        <li><NavLink className={ style } to='/blog'>our shop</NavLink></li>
     </>
-
-    const smallDeviceMenuItems = <>
-        <li><NavLink className={ style } to='/'>Home</NavLink></li>
-        <li><NavLink className={ style } to='/alltoys'>Contact US</NavLink></li>
-        <li><NavLink className={ style } to='/mytoys'>Dashboard</NavLink></li>
-        <li><NavLink className={ style } to='/blog'>our menu</NavLink></li>
-        <li><NavLink className={ style } to='/blog'>our shop</NavLink></li>
-    </>
-
 
 
     return (
@@ -87,7 +78,7 @@ const Header = () => {
                             </svg>
                         </label>
                         <ul className="menu menu-compact dropdown-content mt-3 p-2 bg-slate-900 rounded-box text-white w-52">
-                            { smallDeviceMenuItems }
+                            { largeDeviceMenuItems }
                         </ul>
 
                     </div>
