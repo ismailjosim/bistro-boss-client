@@ -3,7 +3,7 @@ import bannerImg from '../../assets/menu/salad-bg.jpg'
 import useMenu from '../../Hooks/useMenu';
 import Loading from '../../utils/Loading';
 import FetchError from '../../utils/FetchError';
-import PopularMenuCard from '../Home/PopularMenuCard';
+import MenuCard from '../Home/MenuCard';
 
 const Salads = () => {
     const [menu, loading, error, progress] = useMenu()
@@ -28,7 +28,7 @@ const Salads = () => {
         const popularItems = menu.filter(item => item.category === "salad");
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
-                { popularItems.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
+                { popularItems.map((singleItem, index) => <MenuCard key={ index } singleItem={ singleItem } />) }
             </div>
         )
     }

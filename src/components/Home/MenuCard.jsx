@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PopularMenuCard = ({ singleItem }) => {
+const MenuCard = ({ singleItem }) => {
     const { name, image, price, recipe } = singleItem || {}
     return (
         <div className='flex gap-5'>
@@ -20,4 +20,4 @@ const PopularMenuCard = ({ singleItem }) => {
     );
 };
 
-export default PopularMenuCard;
+export default MenuCard;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SectionHeading from '../../utils/SectionHeading';
 import Loading from '../../utils/Loading';
-import PopularMenuCard from './PopularMenuCard';
+import MenuCard from './MenuCard';
 import FetchError from '../../utils/FetchError';
 import useMenu from '../../Hooks/useMenu';
 
@@ -42,7 +42,7 @@ const Menu = () => {
     if (!loading && popularItems.length > 0) {
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
-                { popularItems.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
+                { popularItems.map((singleItem, index) => <MenuCard key={ index } singleItem={ singleItem } />) }
             </div>
         )
     }

@@ -3,7 +3,7 @@ import SectionHeading from '../../utils/SectionHeading';
 import useMenu from '../../Hooks/useMenu';
 import Loading from '../../utils/Loading';
 import FetchError from '../../utils/FetchError';
-import PopularMenuCard from '../Home/PopularMenuCard';
+import MenuCard from '../Home/MenuCard';
 
 
 const TodaysOffer = () => {
@@ -26,10 +26,10 @@ const TodaysOffer = () => {
     }
 
     if (!loading && menu.length > 0) {
-        const popularItems = menu.filter(item => item.category === "salad");
+        const popularItems = menu.filter(item => item.category === "offered");
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
-                { popularItems.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
+                { popularItems.map((singleItem, index) => <MenuCard key={ index } singleItem={ singleItem } />) }
             </div>
         )
     }
