@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const ShopCard = ({ item }) => {
     const { category, image, name, price, recipe, _id } = item || {}
     return (
-        <div className="relative block overflow-hidden group">
-            <button className="absolute hover:bg-secondary hover:text-white right-4 top-4 z-10 bg-white transition-all duration-500 px-3 py-2 rounded-md font-semibold uppercase text-primary">
+        <div className="relative block overflow-hidden group rounded-md">
+            <button className="absolute hover:bg-secondary hover:text-white z-[1] right-4 top-4 bg-black transition-all duration-500 ease-in-out px-3 py-2 rounded-md font-semibold uppercase text-primary">
                 <span>{ category }</span>
             </button>
             <img src={ image } alt="" className="object-cover w-full h-64 transition duration-500 group-hover:scale-105 sm:h-72" />

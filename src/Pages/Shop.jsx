@@ -7,13 +7,19 @@ import { useState } from 'react';
 import useMenu from '../Hooks/useMenu';
 import Loading from '../utils/Loading';
 import FetchError from '../utils/FetchError';
-import MenuCard from '../components/Home/MenuCard';
 import ShopCard from '../components/Shop/ShopCard';
+import { useParams } from 'react-router-dom';
 
 
 const Shop = () => {
+    const categories = ['offered', 'dessert', 'pizza', 'salad', 'soup']
+    const { category } = useParams();
+    const initialIndex = categories.indexOf(category)
+
+
     const [menu, loading, error, progress] = useMenu();
-    const [tabIndex, setTabIndex] = useState(0);
+    const [tabIndex, setTabIndex] = useState(initialIndex);
+
 
     if (loading) {
         return <div className='flex justify-center items-center'>
@@ -48,7 +54,7 @@ const Shop = () => {
                     onSelect={ (e) => setTabIndex(e) }
                 >
                     <TabList className={ "tabs flex justify-center items-center" }>
-                        <Tab className={ `tab tab-bordered text-lg font-semibold` }>All Food</Tab>
+                        <Tab className={ `tab tab-bordered text-lg font-semibold` }>Today's Offer</Tab>
                         <Tab className={ "tab tab-bordered text-lg font-semibold" }>Desserts</Tab>
                         <Tab className={ "tab tab-bordered text-lg font-semibold" }>Pizza</Tab>
                         <Tab className={ "tab tab-bordered text-lg font-semibold" }>Salads</Tab>

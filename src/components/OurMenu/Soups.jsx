@@ -6,6 +6,7 @@ import useMenu from '../../Hooks/useMenu';
 import Loading from '../../utils/Loading';
 import FetchError from '../../utils/FetchError';
 import MenuCard from '../Home/MenuCard';
+import { Link } from 'react-router-dom';
 
 const Soups = () => {
     const [menu, loading, error, progress] = useMenu()
@@ -27,7 +28,7 @@ const Soups = () => {
     }
 
     if (!loading && menu.length > 0) {
-        const popularItems = menu.filter(item => item.category === "salad");
+        const popularItems = menu.filter(item => item.category === "soup");
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
                 { popularItems.map((singleItem, index) => <MenuCard key={ index } singleItem={ singleItem } />) }
@@ -46,7 +47,11 @@ const Soups = () => {
                 { content }
             </div>
             <div className='text-center py-5'>
-                <button className="btn btn-outline border-0 border-b-4 mt-4 transition-all ease-in-out duration-500">Order your FAVORITE food</button>
+                <Link
+                    to={ `/shop/${ "soup" }` }
+                    className='btn btn-outline border-0 border-b-4 mt-4 transition-all ease-in-out duration-500'>
+                    ORDER YOUR FAVORITE FOOD
+                </Link>
             </div>
         </section>
     );

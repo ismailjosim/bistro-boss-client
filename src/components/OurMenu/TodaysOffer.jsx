@@ -4,6 +4,7 @@ import useMenu from '../../Hooks/useMenu';
 import Loading from '../../utils/Loading';
 import FetchError from '../../utils/FetchError';
 import MenuCard from '../Home/MenuCard';
+import { Link } from 'react-router-dom';
 
 
 const TodaysOffer = () => {
@@ -38,6 +39,9 @@ const TodaysOffer = () => {
             <SectionHeading primary={ "Don't miss" } secondary={ "Today's offer" } />
             <div className='my-10 w-11/12 mx-auto'>
                 { content }
+            </div>
+            <div className='text-center py-5'>
+                <Link to={ `/shop/${ "offered" }` } className='btn btn-outline border-0 border-b-4 mt-4 transition-all ease-in-out duration-500'>ORDER YOUR FAVORITE FOOD</Link>
             </div>
         </section>
     );
