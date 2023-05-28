@@ -8,8 +8,6 @@ import MenuCard from '../Home/MenuCard';
 const Desserts = () => {
     const [menu, loading, error, progress] = useMenu()
 
-
-
     let content = null;
 
     if (loading) {

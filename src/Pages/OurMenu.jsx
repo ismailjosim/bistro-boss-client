@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TodaysOffer from '../components/OurMenu/TodaysOffer';
 import Desserts from '../components/OurMenu/Desserts';
 
@@ -8,6 +6,7 @@ import PageHeading from '../utils/PageHeading';
 import Pizza from '../components/OurMenu/Pizza';
 import Salads from '../components/OurMenu/Salads';
 import Soups from '../components/OurMenu/Soups';
+
 
 const OurMenu = () => {
     return (

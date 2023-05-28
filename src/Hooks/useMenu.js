@@ -27,7 +27,6 @@ const useMenu = () => {
                 setProgress(prevProgress => (prevProgress + 10) % 100);
             }
         }, 1000);
-
         return () => clearInterval(interval);
     }, [loading]);
 
