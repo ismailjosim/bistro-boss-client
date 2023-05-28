@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 
 
 const Shop = () => {
-    const categories = ['offered', 'dessert', 'pizza', 'salad', 'soup']
+    const categories = ['all', 'offered', 'dessert', 'pizza', 'salad', 'soup']
     const { category } = useParams();
     const initialIndex = categories.indexOf(category)
 
@@ -37,6 +37,7 @@ const Shop = () => {
 
     // Sort all data and map them
     const allFood = menu.slice(0, 3).map((item, index) => <ShopCard key={ index } item={ item } />)
+    const offeredItem = menu.filter(item => item.category === "offered").map((item, index) => <ShopCard key={ index } item={ item } />)
     const dessertItem = menu.filter(item => item.category === "dessert").map((item, index) => <ShopCard key={ index } item={ item } />)
     const pizzaItem = menu.filter(item => item.category === "pizza").map((item, index) => <ShopCard key={ index } item={ item } />)
     const saladItem = menu.filter(item => item.category === "salad").map((item, index) => <ShopCard key={ index } item={ item } />)
@@ -54,6 +55,7 @@ const Shop = () => {
                     onSelect={ (e) => setTabIndex(e) }
                 >
                     <TabList className={ "tabs flex justify-center items-center" }>
+                        <Tab className={ `tab tab-bordered text-lg font-semibold` }>All</Tab>
                         <Tab className={ `tab tab-bordered text-lg font-semibold` }>Today's Offer</Tab>
                         <Tab className={ "tab tab-bordered text-lg font-semibold" }>Desserts</Tab>
                         <Tab className={ "tab tab-bordered text-lg font-semibold" }>Pizza</Tab>
@@ -63,6 +65,9 @@ const Shop = () => {
 
                     <TabPanel className={ 'w-11/12 mx-auto' }>
                         <div className=' grid lg:grid-cols-3 gap-5 my-10'>{ allFood }</div>
+                    </TabPanel>
+                    <TabPanel className={ 'w-11/12 mx-auto' }>
+                        <div className=' grid lg:grid-cols-3 gap-5 my-10'>{ offeredItem }</div>
                     </TabPanel>
                     <TabPanel className={ 'w-11/12 mx-auto' }>
                         <div className=' grid lg:grid-cols-3 gap-5 my-10'>{ dessertItem }</div>
