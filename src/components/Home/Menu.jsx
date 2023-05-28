@@ -59,7 +59,7 @@ const Menu = () => {
 
     if (!loading && popularMenu.length > 0) {
         content = (
-            <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
                 { popularMenu.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
             </div>
         )
