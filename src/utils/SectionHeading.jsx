@@ -11,7 +11,7 @@ const SectionHeading = ({ primary, secondary }) => {
             </p>
             <div className='inline-block pt-5'>
                 <span className='border-2 w-full block'></span>
-                <h2 id="order-heading" className='text-neutral text-4xl font-normal uppercase my-3'>{ secondary }</h2>
+                <h2 id="order-heading" className='text-neutral lg:text-4xl md:text-3xl text-xl font-normal uppercase my-3'>{ secondary }</h2>
                 <span className='border-2 w-full block'></span>
             </div>
         </div>

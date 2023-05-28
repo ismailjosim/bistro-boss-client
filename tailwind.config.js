@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx, tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        'custom': '0 200px 200px 200px',
+      },
+    },
   },
   daisyui: {
     themes: [
@@ -29,5 +33,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+  ],
 }

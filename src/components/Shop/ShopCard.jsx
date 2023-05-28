@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsCurrencyDollar, BsFillHeartFill } from 'react-icons/bs'
+import { BsCurrencyDollar } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 const ShopCard = ({ item }) => {

@@ -35,8 +35,6 @@ const Header = () => {
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
         <li><NavLink className={ style } to='/menu'>our menu</NavLink></li>
         <li><NavLink className={ style } to='/shop'>our shop</NavLink></li>
-        <li><NavLink className={ style } to='/mytoys'>Dashboard</NavLink></li>
-        <li><NavLink className={ style } to='/blog'>our menu</NavLink></li>
     </>
 
 
@@ -69,7 +67,7 @@ const Header = () => {
                             </ul>
                         </div>
                         :
-                        <Link to='/login' className="btn btn-md rounded-md btn-outline btn-primary">Log In</Link>
+                        <Link to='/login' className="btn btn-md rounded-md btn-outline btn-primary lg:ml-5">Log In</Link>
                     }
                     <div className="dropdown dropdown-bottom dropdown-end flex">
                         <label tabIndex={ 0 } className="btn btn-ghost lg:hidden">

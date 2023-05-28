@@ -35,7 +35,7 @@ const TodaysOffer = () => {
         )
     }
     return (
-        <section className='my-20'>
+        <section className='lg:my-20 my-10'>
             <SectionHeading primary={ "Don't miss" } secondary={ "Today's offer" } />
             <div className='my-10 w-11/12 mx-auto'>
                 { content }
