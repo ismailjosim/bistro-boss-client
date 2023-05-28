@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
@@ -76,6 +77,12 @@ const Login = () => {
                             <div>
                                 <div className={ inputStyle }>
                                     <input type="password" name='password' required placeholder="Your Password" className="w-full bg-transparent pb-3  border-b border-gray-300 outline-none invalid:border-primary transition text-primary" />
+                                </div>
+                            </div>
+                            <div>
+                                <div className={ inputStyle }>
+
+                                    <input type="text" name='password' required placeholder="Your Password" className="w-full bg-transparent pb-3  border-b border-gray-300 outline-none invalid:border-primary transition text-primary" />
                                 </div>
                             </div>
 
