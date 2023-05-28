@@ -3,30 +3,14 @@ import SectionHeading from '../../utils/SectionHeading';
 import Loading from '../../utils/Loading';
 import PopularMenuCard from './PopularMenuCard';
 import FetchError from '../../utils/FetchError';
+import useMenu from '../../Hooks/useMenu';
 
 const Menu = () => {
-    const [popularMenu, setPopularMenu] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const [progress, setProgress] = useState(0)
-    const [error, setError] = useState(null)
+    const [menu, loading, error] = useMenu()
+    const [progress, setProgress] = useState(0);
 
-
-    const url = 'menu.json';
-    const category = "popular";
-
-    useEffect(() => {
-        setLoading(true)
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setLoading(false)
-                const popularItems = data.filter(item => item.category === category);
-                setPopularMenu(popularItems);
-            })
-            .catch(err => {
-                setError(err.message)
-            })
-    }, []);
+    // section: Show Food Items According to category
+    const popularItems = menu.filter(item => item.category === "popular");
 
     // calculate Progress for loading state
     useEffect(() => {
@@ -38,8 +22,6 @@ const Menu = () => {
 
         return () => clearInterval(interval);
     }, [loading]);
-
-
 
     let content = null;
 
@@ -53,14 +35,14 @@ const Menu = () => {
         content = <FetchError message={ error } />
     }
 
-    if (!loading && popularMenu.length === 0) {
+    if (!loading && popularItems.length === 0) {
         content = <FetchError message={ "No Data Found!" } />
     }
 
-    if (!loading && popularMenu.length > 0) {
+    if (!loading && popularItems.length > 0) {
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
-                { popularMenu.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
+                { popularItems.map((singleItem, index) => <PopularMenuCard key={ index } singleItem={ singleItem } />) }
             </div>
         )
     }
