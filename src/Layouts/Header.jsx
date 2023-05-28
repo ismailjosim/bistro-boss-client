@@ -23,7 +23,7 @@ const Header = () => {
 
 
 
-    const style = "hover:btn-secondary rounded-md hover:text-white active:bg-primary active:text-white"
+    const style = "hover:btn-secondary rounded-md hover:text-white active:bg-primary active:text-white uppercase"
 
     const handleUserRemove = () => {
         userLogout()
@@ -33,7 +33,7 @@ const Header = () => {
 
     const largeDeviceMenuItems = <>
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
-        <li><NavLink className={ style } to='/alltoys'>Contact US</NavLink></li>
+        <li><NavLink className={ style } to='/menu'>our menu</NavLink></li>
         <li><NavLink className={ style } to='/mytoys'>Dashboard</NavLink></li>
         <li><NavLink className={ style } to='/blog'>our menu</NavLink></li>
         <li><NavLink className={ style } to='/blog'>our shop</NavLink></li>
