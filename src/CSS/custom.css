@@ -12,3 +12,7 @@
     border-color: #D99904 !important;
     color: #D99904 !important;
 }
+
+.dashboard-layout .active {
+    color: #ffffff;
+}

@@ -38,10 +38,10 @@ const Header = () => {
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
         <li><NavLink className={ style } to='/menu'>our menu</NavLink></li>
         <li><NavLink className={ style } to='/shop'>our shop</NavLink></li>
-        <li><button className={ 'btn btn-primary mx-5 flex justify-center items-center w-12 rounded-full relative' }>
+        <li><NavLink to={ '/dashboard' } className={ 'btn btn-primary mx-5 flex justify-center items-center w-12 rounded-full relative' }>
             <BsFillCartFill className='w-20' />
             <div className="badge absolute -top-2 left-6 w-5 h-5 text-black bg-white border-white">{ cart?.length }</div>
-        </button>
+        </NavLink>
         </li>
 
     </>
