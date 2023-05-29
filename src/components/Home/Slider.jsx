@@ -11,7 +11,13 @@ const Slider = () => {
     }, [])
 
     return (
-        <Carousel autoPlay showArrows={ false } stopOnHover={ true } transitionTime={ 1000 } infiniteLoop interval={ 5000 }>
+        <Carousel
+            autoPlay
+            showArrows={ false }
+            stopOnHover={ true }
+            transitionTime={ 1000 }
+            infiniteLoop interval={ 5000 }
+        >
             { slideData && slideData.map((item, index) => {
                 const { title, thumbnail } = item;
                 return (
@@ -19,9 +25,12 @@ const Slider = () => {
                         key={ index }
                         style={ {
                             backgroundImage: `url(${ thumbnail })`,
-                            backgroundSize: 'cover', // set a fixed background size
-                            height: 'calc(100vh - 4rem)', // set the height based on screen size
-                            maxHeight: '80vh', // limit the max height to 90% of the screen on large screens
+                            backgroundSize: 'cover',
+                            maxHeight: '90vh',
+                            height: 'calc(90vh - 4rem)',
+                            backgroundPosition: 'center center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundAttachment: 'fixed'
                         } }
                         className="relative bg-no-repeat"
                     >

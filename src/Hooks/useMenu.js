@@ -24,7 +24,7 @@ const useMenu = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             if (loading) {
-                setProgress(prevProgress => (prevProgress + 10) % 100);
+                setProgress(prevProgress => (prevProgress + 1) % 100);
             }
         }, 1000);
         return () => clearInterval(interval);

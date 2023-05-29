@@ -3,7 +3,7 @@ import '../CSS/custom.css'
 import 'react-tabs/style/react-tabs.css';
 import PageHeading from '../utils/PageHeading';
 import bannerImg from '../assets/shop/banner2.jpg'
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useMenu from '../Hooks/useMenu';
 import Loading from '../utils/Loading';
 import FetchError from '../utils/FetchError';
@@ -12,20 +12,20 @@ import { useParams } from 'react-router-dom';
 
 
 const Shop = () => {
-
-
-    const categories = ['all', 'offered', 'dessert', 'pizza', 'salad', 'soup']
     const { category } = useParams();
+    const categories = useMemo(() => ['all', 'offered', 'dessert', 'pizza', 'salad', 'soup'], []);
+    //By using useMemo, the categories array will only be computed once during the initial render and remain the same unless the dependencies change.
+
+
+
     const initialIndex = categories.indexOf(category)
     const [tabIndex, setTabIndex] = useState(initialIndex);
 
     // Active all tab if user navigate via navigation menu.
     useEffect(() => {
         const categoryIndex = categories.indexOf(category);
-
-        // If the category is not found(index is - 1), the default value of 0 is used to activate the "All" tab.
         setTabIndex(categoryIndex === -1 ? 0 : categoryIndex);
-    }, [category]);
+    }, [category, categories]);
 
 
 
