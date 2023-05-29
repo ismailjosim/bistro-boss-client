@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsCurrencyDollar } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthProvider';
+import toast from 'react-hot-toast';
+import useCart from '../../Hooks/useCart';
 
 const ShopCard = ({ item }) => {
-    const { category, image, name, price, recipe, _id } = item || {}
+    const { category, image, name, price, recipe } = item || {};
+
+    const { user } = useContext(AuthContext);
+    const { refetch } = useCart();
+
+
+
+
+    const handleAddToCart = data => {
+        if (user && user.email) {
+            const itemInfo = {
+                itemId: data._id,
+                name,
+                image,
+                category,
+                price,
+                userName: user.displayName,
+                userEmail: user.email
+            }
+            fetch('http://localhost:5000/carts', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(itemInfo)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        toast.success('Product Added Successfully ✅')
+                        refetch() // refetch useCart
+
+                    }
+                })
+        } else {
+            alert("You Need To Login First")
+        }
+    }
+
+
+
     return (
         <div className="relative block overflow-hidden group rounded-md">
             <button className="absolute hover:bg-secondary hover:text-white z-[1] right-4 top-4 bg-black transition-all duration-500 ease-in-out px-3 py-2 rounded-md font-semibold uppercase text-primary">
@@ -20,9 +62,12 @@ const ShopCard = ({ item }) => {
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-gray-900">{ name }</h3>
                 <p className="mt-1.5 font-light">{ recipe.slice(0, 100) }...<span className='font-semibold text-primary'>Read More</span></p>
-                <form className="mt-4">
-                    <Link to={ `/product/${ _id }` } className="btn btn-primary w-full text-sm font-medium transition text-white rounded hover:scale-105"> Add to Cart</Link>
-                </form>
+                <button
+                    className="btn btn-primary w-full text-sm font-medium transition text-white rounded hover:scale-105 mt-5"
+                    onClick={ () => handleAddToCart(item) }
+                >
+                    Add to Cart
+                </button>
             </div>
         </div>
     );

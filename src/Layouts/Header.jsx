@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider';
+import { BsFillCartFill } from 'react-icons/bs'
+import useCart from '../Hooks/useCart';
 
 
 const Header = () => {
     const { user, userLogout } = useContext(AuthContext);
     const [isScrolled, setIsScrolled] = useState(false);
+    const { cart } = useCart();
 
     // add scrolling effect
     useEffect(() => {
@@ -35,6 +38,12 @@ const Header = () => {
         <li><NavLink className={ style } to='/'>Home</NavLink></li>
         <li><NavLink className={ style } to='/menu'>our menu</NavLink></li>
         <li><NavLink className={ style } to='/shop'>our shop</NavLink></li>
+        <li><button className={ 'btn btn-primary mx-5 flex justify-center items-center w-12 rounded-full relative' }>
+            <BsFillCartFill className='w-20' />
+            <div className="badge absolute -top-2 left-6 w-5 h-5 text-black bg-white border-white">{ cart?.length }</div>
+        </button>
+        </li>
+
     </>
 
 

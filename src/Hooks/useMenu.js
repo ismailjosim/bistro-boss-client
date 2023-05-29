@@ -9,7 +9,8 @@ const useMenu = () => {
     // fetch data
     useEffect(() => {
         setLoading(true)
-        fetch('https://bistro-boss-server-git-main-ismailjosim.vercel.app/menu')
+        // fetch('https://bistro-boss-server-git-main-ismailjosim.vercel.app/menu')
+        fetch('http://localhost:5000/menu')
             .then(res => res.json())
             .then(data => {
                 setLoading(false)

@@ -7,12 +7,23 @@ import AuthProvider from './contexts/AuthProvider';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'react-hot-toast';
+
+// Create a client
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={ router } />
+      <QueryClientProvider client={ queryClient }>
+        <Toaster
+          position="top-right"
+          reverseOrder={ false }
+        />
+        <RouterProvider router={ router } />
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );
