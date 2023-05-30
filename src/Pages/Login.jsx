@@ -29,7 +29,7 @@ const Login = () => {
                 const user = res.user;
                 if (user) {
                     const saveUserInfo = { name: user ? user.displayName : "User", email: user.email }
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://bistro-boss-server-sigma.vercel.app/users', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
