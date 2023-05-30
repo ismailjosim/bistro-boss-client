@@ -1,12 +1,12 @@
 import { BsCurrencyDollar } from 'react-icons/bs'
 import toast from 'react-hot-toast';
 import useCart from '../../Hooks/useCart';
-import UseAuth from '../../Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const ShopCard = ({ item }) => {
     const { category, image, name, price, recipe } = item || {};
 
-    const { user } = UseAuth();
+    const { user } = useAuth();
     const { refetch } = useCart();
 
 

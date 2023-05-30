@@ -7,13 +7,15 @@ import { MdReviews } from 'react-icons/md';
 import { ImMenu } from 'react-icons/im';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import '../CSS/custom.css';
+import useAdmin from '../Hooks/useAdmin';
 
 const Dashboard = () => {
     const style = "hover:btn-secondary rounded-md hover:text-white active:bg-secondary active:text-white uppercase font-medium w-full";
 
 
     // TODO: load data from the server to hanve dynamic isAdmin based on data.
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
 
 

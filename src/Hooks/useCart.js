@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from './useAxiosSecure';
 import useAuth from './useAuth';
 
+
+
 const useCart = () => {
-    const { user, loading } = useAuth()
+    const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
     const { isLoading, isError, data: cart = [], error, refetch } = useQuery(['carts', user?.email], {
