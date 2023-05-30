@@ -13,6 +13,7 @@ import PaymentHistory from '../Pages/Dashboard/User/PaymentHistory';
 import MyCart from '../Pages/Dashboard/User/MyCart';
 import AddReview from '../Pages/Dashboard/User/AddReview';
 import MyBooking from '../Pages/Dashboard/User/MyBooking';
+import PrivateRoutes from '../Private/PrivateRoutes';
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard />,
+        element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
         children: [
             {
                 path: '',

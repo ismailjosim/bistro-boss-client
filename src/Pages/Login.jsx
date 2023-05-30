@@ -28,7 +28,20 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 if (user) {
-                    navigateNow();
+                    const saveUserInfo = { name: user ? user.displayName : "User", email: user.email }
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUserInfo)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId || data.message) {
+                                navigateNow();
+                            }
+                        })
                 }
             })
             .catch(error => console.log(error))
