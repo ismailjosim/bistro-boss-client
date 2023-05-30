@@ -1,6 +1,4 @@
-import React from 'react';
 import Swal from 'sweetalert2'
-
 import { BsFillTrash3Fill } from 'react-icons/bs';
 import { IoIosPeople } from 'react-icons/io';
 import SectionHeading from '../../../utils/SectionHeading';
@@ -37,8 +35,6 @@ const AllUsers = () => {
                             refetch()
                         }
                     })
-
-
             }
         })
     }
@@ -77,8 +73,6 @@ const AllUsers = () => {
             }
         })
     }
-
-
 
     return (
         <section>

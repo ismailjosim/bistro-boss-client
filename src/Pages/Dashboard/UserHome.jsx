@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
 import { AiFillShop } from 'react-icons/ai';
 import { BsFillCartFill, BsStarFill } from 'react-icons/bs';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { GiWallet } from 'react-icons/gi';
 import { MdWifiCalling3 } from 'react-icons/md';
-import { AuthContext } from '../../contexts/AuthProvider';
+import UseAuth from '../../Hooks/useAuth';
 
 const UserHome = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = UseAuth()
     return (
         <section>
             <h3 className='text-3xl font-semibold font-cinzel text-center md:text-left'>Hi, Welcome Back!</h3>

@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom'
-import { AuthContext } from '../contexts/AuthProvider';
+
 import { BsFillCartFill } from 'react-icons/bs'
 import useCart from '../Hooks/useCart';
+import useAuth from '../Hooks/useAuth';
 
 
 const Header = () => {
-    const { user, userLogout } = useContext(AuthContext);
+    const { user, userLogout } = useAuth();
     const [isScrolled, setIsScrolled] = useState(false);
     const { cart } = useCart();
 

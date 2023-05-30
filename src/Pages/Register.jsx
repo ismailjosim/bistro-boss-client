@@ -1,14 +1,15 @@
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { BsGithub, BsGoogle } from 'react-icons/bs'
-import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthProvider';
+
+import useAuth from '../Hooks/useAuth';
 
 
 const inputStyle = "relative before:absolute before:bottom-0 before:h-0.5 before:left-0 before:origin-right focus-within:before:origin-left before:right-0 before:scale-x-0 before:m-auto before:bg-primary focus-within:before:!scale-x-100 focus-within:invalid:before:bg-primary before:transition before:duration-300"
 
 const Register = () => {
-    const { googleProviderLogin, githubProviderLogin, createNewUser, updateUserProfile } = useContext(AuthContext);
+    const { googleProviderLogin, githubProviderLogin, createNewUser, updateUserProfile } = useAuth();
     const [error, setError] = useState(null);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();

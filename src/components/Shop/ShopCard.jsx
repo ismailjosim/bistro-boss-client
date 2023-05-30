@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
 import { BsCurrencyDollar } from 'react-icons/bs'
-import { AuthContext } from '../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 import useCart from '../../Hooks/useCart';
+import UseAuth from '../../Hooks/useAuth';
 
 const ShopCard = ({ item }) => {
     const { category, image, name, price, recipe } = item || {};
 
-    const { user } = useContext(AuthContext);
+    const { user } = UseAuth();
     const { refetch } = useCart();
-
-
 
 
     const handleAddToCart = data => {

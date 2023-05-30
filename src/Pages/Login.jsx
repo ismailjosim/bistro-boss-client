@@ -1,15 +1,15 @@
 
-import React, { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
-import { AuthContext } from '../contexts/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useAuth from '../Hooks/useAuth';
 
 const inputStyle = "relative before:absolute before:bottom-0 before:h-0.5 before:left-0 before:origin-right focus-within:before:origin-left before:right-0 before:scale-x-0 before:m-auto before:bg-primary focus-within:before:!scale-x-100 focus-within:invalid:before:bg-primary before:transition before:duration-300"
 
 
 const Login = () => {
-    const { googleProviderLogin, githubProviderLogin, userLogin } = useContext(AuthContext);
+    const { googleProviderLogin, githubProviderLogin, userLogin } = useAuth()
     const [error, setError] = useState(null);
 
     const googleProvider = new GoogleAuthProvider();

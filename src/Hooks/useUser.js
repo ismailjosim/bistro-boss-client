@@ -1,15 +1,14 @@
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query'
+import useAuth from './useAuth'
 
 
 
 const useUser = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const { isLoading, isError, data: users = [], error, refetch } = useQuery(['users', user?.email], {
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/users`);
-            // const res = await fetch(`https://bistro-boss-server-git-main-ismailjosim.vercel.app/carts?email=${ user?.email }`);
+            // const res = await fetch(`https://bistro-boss-server-git-main-ismailjosim.vercel.app/carts?email=${ user }`);
             return res.json();
         },
     });
