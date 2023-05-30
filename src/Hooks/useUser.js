@@ -1,15 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import useAuth from './useAuth'
+import useAxiosSecure from './useAxiosSecure';
 
 
 
 const useUser = () => {
     const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const { isLoading, isError, data: users = [], error, refetch } = useQuery(['users', user?.email], {
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`);
+            const res = await axiosSecure.get(`/users`);
             // const res = await fetch(`https://bistro-boss-server-git-main-ismailjosim.vercel.app/carts?email=${ user }`);
-            return res.json();
+            return res.data;
         },
     });
 
