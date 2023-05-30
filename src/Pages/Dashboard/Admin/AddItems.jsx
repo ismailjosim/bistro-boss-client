@@ -63,13 +63,7 @@ const AddItems = () => {
                             <label htmlFor="name" className="label">
                                 <span className="label-text">Price*</span>
                             </label>
-                            <input
-                                type="file"
-                                name='name'
-                                placeholder="Recipe name"
-                                className="input input-bordered input-primary w-full"
-                                required
-                            />
+                            <input type="file" className="file-input file-input-primary w-full" />
                         </div>
                         <div>
                             <button type='submit'
