@@ -70,15 +70,20 @@ const AddReview = () => {
                             ></textarea>
                         </div>
                         <div>
-                            <button type='submit' className='btn btn-primary rounded-md text-white capitalize flex gap-2'>
+                            <button type='submit'
+                                className='btn btn-primary rounded-md text-white capitalize flex gap-2'
+                                style={ {
+                                    backgroundImage: 'linear-gradient(90deg, #835D23 0%, #B58130 100%)'
+                                } }
+                            >
                                 <span>Send Review</span>
                                 <BsFillRocketTakeoffFill size={ 15 } />
                             </button>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
