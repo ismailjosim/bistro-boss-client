@@ -64,7 +64,6 @@ const AddReview = () => {
                             <textarea
                                 name='message'
                                 className="textarea textarea-primary"
-                                aria-expanded={ false }
                                 placeholder="Review in detail"
                                 required
                             ></textarea>

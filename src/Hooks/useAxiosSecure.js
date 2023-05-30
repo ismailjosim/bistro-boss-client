@@ -11,7 +11,8 @@ const useAxiosSecure = () => {
     const navigate = useNavigate()
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000' // base URL
+        // baseURL: 'http://localhost:5000' // base URL Local Link
+        baseURL: 'https://bistro-boss-server-git-main-ismailjosim.vercel.app' // base URL Live Link
     })
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {

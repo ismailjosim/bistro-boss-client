@@ -1,8 +1,5 @@
-import React from 'react';
-import { BsFillTrash3Fill } from 'react-icons/bs';
-import { IoIosPeople } from 'react-icons/io';
 import SectionHeading from '../../../utils/SectionHeading';
-import { AiFillCheckCircle, AiOutlineCheck } from 'react-icons/ai';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const ManageBookings = () => {
     return (

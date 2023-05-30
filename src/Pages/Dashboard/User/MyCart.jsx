@@ -58,7 +58,7 @@ const MyCart = () => {
                     <tbody>
 
                         { cart && cart.map((item, index) => {
-                            const { category, image, itemId, name, price, userEmail, userName, _id } = item || {}
+                            const { image, name, price, _id } = item || {}
                             return (
                                 <tr key={ index }>
                                     <th>{ index + 1 }</th>

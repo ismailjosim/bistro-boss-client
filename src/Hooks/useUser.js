@@ -10,7 +10,6 @@ const useUser = () => {
     const { isLoading, isError, data: users = [], error, refetch } = useQuery(['users', user?.email], {
         queryFn: async () => {
             const res = await axiosSecure.get(`/users`);
-            // const res = await fetch(`https://bistro-boss-server-git-main-ismailjosim.vercel.app/carts?email=${ user }`);
             return res.data;
         },
     });
