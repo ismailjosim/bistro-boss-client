@@ -11,7 +11,7 @@ const useCart = () => {
     const { isLoading, isError, data: cart = [], error, refetch } = useQuery(['carts', user?.email], {
         queryFn: async () => {
             if (!loading && user?.email) {
-                const res = await axiosSecure(`/carts?email=${ user?.email }`);
+                const res = await axiosSecure(`/carts?email=${ user.email }`);
                 return res.data;
             }
         },
