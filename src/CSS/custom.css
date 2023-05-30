@@ -16,3 +16,8 @@
 .dashboard-layout .active {
     color: #ffffff;
 }
+
+.table :where(thead, tfoot) :where(th, td) {
+    background-color: #D1A054;
+    color: #fff;
+}
