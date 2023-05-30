@@ -11,6 +11,12 @@ import '../CSS/custom.css';
 const Dashboard = () => {
     const style = "hover:btn-secondary rounded-md hover:text-white active:bg-secondary active:text-white uppercase font-medium w-full";
 
+
+    // TODO: load data from the server to hanve dynamic isAdmin based on data.
+    const isAdmin = true;
+
+
+
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -33,42 +39,82 @@ const Dashboard = () => {
                             <AiFillCloseSquare></AiFillCloseSquare>
                         </label>
                         <span className="mt-10"></span>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/home">
-                                <AiFillHome />
-                                <span>User Home</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/reservation">
-                                <FaCalendarAlt />
-                                <span>Reservation</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/history">
-                                <GiWallet />
-                                <span>Payment History</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/cart">
-                                <FaShoppingCart />
-                                <span>My Cart</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/review">
-                                <MdReviews />
-                                <span>Add Review</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className={ style } to="/dashboard/booking">
-                                <BsFillCalendarWeekFill />
-                                <span>My Booking</span>
-                            </NavLink>
-                        </li>
+                        {
+                            isAdmin ?
+                                <>
+                                    <>
+                                        <li>
+                                            <NavLink className={ style } to="/dashboard/home">
+                                                <AiFillHome />
+                                                <span>Admin Home</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink className={ style } to="/dashboard/additems">
+                                                <FaCalendarAlt />
+                                                <span>add items</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink className={ style } to="/dashboard/manageitems">
+                                                <GiWallet />
+                                                <span>manage items</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink className={ style } to="/dashboard/managebooking">
+                                                <FaShoppingCart />
+                                                <span>Manage bookings</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink className={ style } to="/dashboard/allusers">
+                                                <MdReviews />
+                                                <span>all users</span>
+                                            </NavLink>
+                                        </li>
+                                    </>
+                                </>
+                                :
+                                <>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/home">
+                                            <AiFillHome />
+                                            <span>User Home</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/reservation">
+                                            <FaCalendarAlt />
+                                            <span>Reservation</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/history">
+                                            <GiWallet />
+                                            <span>Payment History</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/cart">
+                                            <FaShoppingCart />
+                                            <span>My Cart</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/review">
+                                            <MdReviews />
+                                            <span>Add Review</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={ style } to="/dashboard/booking">
+                                            <BsFillCalendarWeekFill />
+                                            <span>My Booking</span>
+                                        </NavLink>
+                                    </li>
+                                </>
+                        }
                     </ul>
                 </div>
             </div>
