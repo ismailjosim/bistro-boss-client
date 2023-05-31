@@ -61,7 +61,7 @@ const Shop = () => {
             <PageHeading bannerImg={ bannerImg } primary={ "Our shop" } secondary={ "would you like to try a dish?" } />
             <div className=''>
                 <Tabs
-                    defaultIndex={ tabIndex }
+                    defaultIndex={ 0 }
                     className="w-11/12 mx-auto mt-10"
                     onSelect={ (e) => setTabIndex(e) }
                 >
