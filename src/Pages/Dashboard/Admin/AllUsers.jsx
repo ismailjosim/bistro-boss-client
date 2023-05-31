@@ -19,7 +19,7 @@ const AllUsers = () => {
             confirmButtonText: "Confirm"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://bistro-boss-server-sigma.vercel.app/users/admin/${ user._id }`, {
+                fetch(`http://localhost:5000/users/admin/${ user._id }`, {
                     method: 'PATCH'
                 })
                     .then(res => res.json())
@@ -51,7 +51,7 @@ const AllUsers = () => {
             confirmButtonText: "Confirm"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://bistro-boss-server-sigma.vercel.app/users/${ id }`, {
+                fetch(`http://localhost:5000/users/${ id }`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

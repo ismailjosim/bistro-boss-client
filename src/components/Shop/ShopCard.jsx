@@ -21,7 +21,7 @@ const ShopCard = ({ item }) => {
                 userName: user.displayName,
                 userEmail: user.email
             }
-            fetch('https://bistro-boss-server-sigma.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

@@ -3,16 +3,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import useAuth from './useAuth';
 
-
-
-
 const useAxiosSecure = () => {
     const { userLogout } = useAuth();
     const navigate = useNavigate()
 
     const axiosSecure = axios.create({
-        // baseURL: 'https://bistro-boss-server-sigma.vercel.app' // base URL Local Link
-        baseURL: 'https://bistro-boss-server-sigma.vercel.app' // base URL Live Link
+        baseURL: 'http://localhost:5000'
     })
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
@@ -29,7 +25,6 @@ const useAxiosSecure = () => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
                     await userLogout();
                     navigate('/login')
-
                 }
                 return Promise.reject(error)
             }

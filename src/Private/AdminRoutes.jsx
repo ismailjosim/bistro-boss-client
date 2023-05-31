@@ -9,7 +9,7 @@ const AdminRoutes = ({ children }) => {
 
     if (loading || isAdminLoading) {
         return (
-            <div className='flex justify-center items-center gap-3 flex-col'>
+            <div className='flex justify-center items-center gap-3 flex-col mt-10'>
                 <div className="w-24 h-24 mb-10 border-4 border-dashed rounded-full animate-spin border-primary">
                 </div>
             </div>
@@ -17,7 +17,7 @@ const AdminRoutes = ({ children }) => {
     }
 
     return (
-        user && isAdmin ? <div>{ children }</div> : <Navigate to={ '/login' } state={ { from: location } } replace />
+        user && isAdmin ? <div>{ children }</div> : <Navigate to={ '/' } state={ { from: location } } replace />
     );
 };
 
