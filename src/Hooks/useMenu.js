@@ -41,7 +41,7 @@ export default useMenu;
 // useEffect(() => {
 //     setLoading(true)
 //     // fetch('https://bistro-boss-server-git-main-ismailjosim.vercel.app/menu')
-//     fetch('http://localhost:5000/menu')
+//     fetch(`${ process.env.REACT_APP_SERVER_URL }/menu')
 //         .then(res => res.json())
 //         .then(data => {
 //             setLoading(false)

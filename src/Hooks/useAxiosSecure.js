@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
     const navigate = useNavigate()
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000'
+        baseURL: `${ process.env.REACT_APP_SERVER_URL }`
     })
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {

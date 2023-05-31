@@ -21,7 +21,7 @@ const ShopCard = ({ item }) => {
                 userName: user.displayName,
                 userEmail: user.email
             }
-            fetch('http://localhost:5000/carts', {
+            fetch(`${ process.env.REACT_APP_SERVER_URL }/carts`, {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
             // get and set token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                axios.post(`${ process.env.REACT_APP_SERVER_URL }/jwt`, { email: currentUser.email })
                     .then(data => {
                         if (data.data) {
                             localStorage.setItem('access-token', data?.data?.token)

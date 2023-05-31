@@ -16,7 +16,7 @@ const MyCart = () => {
         // eslint-disable-next-line no-restricted-globals
         const confirmed = confirm('are you Sure!');
         if (confirmed) {
-            fetch(`http://localhost:5000/carts/${ id }`, {
+            fetch(`${ process.env.REACT_APP_SERVER_URL }/carts/${ id }`, {
                 method: "DELETE",
             })
                 .then(res => res.json())
