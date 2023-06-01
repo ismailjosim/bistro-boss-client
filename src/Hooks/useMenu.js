@@ -1,13 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
 import useAxiosSecure from './useAxiosSecure';
 
 const useMenu = () => {
-    const [progress, setProgress] = useState(0);
+
     const [axiosSecure] = useAxiosSecure();
 
     // Fetch data with axios api
-    const { isLoading, data: menu = [], error, refetch } = useQuery(['menu'], {
+    const { isLoading, data: menu = [], isError, error, refetch } = useQuery(['menu'], {
         queryFn: async () => {
             const res = await axiosSecure('/menu');
             return res.data;
@@ -15,18 +14,9 @@ const useMenu = () => {
 
     })
 
-    // Calculate progress for loading state
-    useEffect(() => {
-        let interval;
-        if (isLoading) {
-            interval = setInterval(() => {
-                setProgress(prevProgress => (prevProgress + 1) % 100);
-            }, 1000);
-        }
-        return () => clearInterval(interval);
-    }, [isLoading]);
 
-    return [menu, error, progress, isLoading, refetch]
+
+    return [menu, refetch, isError, error, isLoading]
 
 };
 

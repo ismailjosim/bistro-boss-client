@@ -13,13 +13,14 @@ import { useParams } from 'react-router-dom';
 
 const Shop = () => {
     const { category } = useParams();
+    const [menu, , isError, error, isLoading] = useMenu()
     const categories = useMemo(() => ['all', 'offered', 'dessert', 'pizza', 'salad', 'soup'], []);
     //By using useMemo, the categories array will only be computed once during the initial render and remain the same unless the dependencies change.
 
 
 
-    const initialIndex = categories.indexOf(category)
-    const [tabIndex, setTabIndex] = useState(initialIndex);
+    // const initialIndex = categories.indexOf(category)
+    const [tabIndex, setTabIndex] = useState(0);
 
     // Active all tab if user navigate via navigation menu.
     useEffect(() => {
@@ -30,19 +31,18 @@ const Shop = () => {
 
 
 
-    const [menu, loading, error, progress] = useMenu();
 
-    if (loading) {
+    if (isLoading) {
         return <div className='flex justify-center items-center'>
-            <Loading progress={ progress } />
+            <Loading />
         </div>
     }
 
-    if (error) {
+    if (isError) {
         return <FetchError message={ error } />
     }
 
-    if (!loading && menu.length === 0) {
+    if (!isLoading && menu.length === 0) {
         return <FetchError message={ "No Data Found!" } />
     }
 
@@ -55,13 +55,14 @@ const Shop = () => {
     const soupItem = menu.filter(item => item.category === "soup").map((item, index) => <ShopCard key={ index } item={ item } />)
 
 
-
+    console.log(tabIndex);
     return (
         <main>
             <PageHeading bannerImg={ bannerImg } primary={ "Our shop" } secondary={ "would you like to try a dish?" } />
             <div className=''>
                 <Tabs
-                    defaultIndex={ 0 }
+                    // defaultIndex={ tabIndex }
+                    selectedIndex={ tabIndex }
                     className="w-11/12 mx-auto mt-10"
                     onSelect={ (e) => setTabIndex(e) }
                 >

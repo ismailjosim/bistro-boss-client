@@ -8,11 +8,12 @@ const useAdmin = () => {
 
 
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
-
-        queryKey: ['isAdmin', user?.email],// query key দিলে সে ক্লায়েন্ট সাইডে cache করে রাখে
+        queryKey: ['isAdmin', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/admin/${ user?.email }`)
-            return res.data.admin;
+            if (user?.email) {
+                const res = await axiosSecure.get(`/users/admin/${ user.email }`)
+                return res.data.admin;
+            }
         }
 
     })

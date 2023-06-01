@@ -4,9 +4,11 @@ import useMenu from '../../../Hooks/useMenu';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 import { BiEdit } from 'react-icons/bi';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const ManageItems = () => {
     const [menu, refetch] = useMenu();
+    const [axiosSecure] = useAxiosSecure();
 
 
     const handleMenuUpdate = (item) => {
@@ -15,6 +17,14 @@ const ManageItems = () => {
 
     const handleMenuDelete = (id) => {
         // Delete the item with the specified ID
+        axiosSecure.delete(`/menu/${ id }`)
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    console.log(res.data);
+                    refetch()
+                }
+            })
+
     };
 
     const handlePageChange = (pageNumber) => {

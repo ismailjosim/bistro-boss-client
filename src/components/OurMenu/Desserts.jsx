@@ -7,25 +7,26 @@ import MenuCard from '../Home/MenuCard';
 import { Link } from 'react-router-dom';
 
 const Desserts = () => {
-    const [menu, loading, error, progress] = useMenu()
+    const [menu, , isError, error, isLoading] = useMenu()
+
 
     let content = null;
 
-    if (loading) {
+    if (isLoading) {
         content = <div className='flex justify-center items-center'>
-            <Loading progress={ progress } />
+            <Loading />
         </div>
     }
 
-    if (error) {
+    if (isError) {
         content = <FetchError message={ error } />
     }
 
-    if (!loading && menu.length === 0) {
+    if (!isLoading && menu.length === 0) {
         content = <FetchError message={ "No Data Found!" } />
     }
 
-    if (!loading && menu.length > 0) {
+    if (!isLoading && menu.length > 0) {
         const popularItems = menu.filter(item => item.category === "dessert");
         content = (
             <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
