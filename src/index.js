@@ -9,6 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast';
+// import 'sweetalert2/dist/sweetalert2.css';
 
 // Create a client
 const queryClient = new QueryClient();

@@ -15,6 +15,7 @@ const useCart = () => {
             }
         },
         enabled: !loading && !!user?.email // Enable the query only when not loading and user email is available
+        // enabled: !!user?.email && !!localStorage.getItem("tokenName"),
     });
 
     return { cart, isError, isLoading, error, refetch }; // Return refetch as part of the object

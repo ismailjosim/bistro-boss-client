@@ -42,7 +42,7 @@ const MyCart = () => {
                 <div className='flex justify-between items-center mt-5'>
                     <h2 className='uppercase text-xl font-bold font-cinzel my-5'>Total Orders: { cart?.length }</h2>
                     <h2 className='uppercase text-xl font-bold font-cinzel my-5'>Total Price: ${ total.toFixed(2) }</h2>
-                    <Link to={ '/' } className='btn btn-primary text-white hover:btn-secondary transition-all ease-in-out duration-300'>PAY</Link>
+                    <Link to={ '/dashboard/payment' } className='btn btn-primary text-white hover:btn-secondary transition-all ease-in-out duration-300'>PAY</Link>
                 </div>
                 <table className="table w-full">
                     {/* head */ }

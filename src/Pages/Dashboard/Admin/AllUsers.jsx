@@ -19,7 +19,7 @@ const AllUsers = () => {
             confirmButtonText: "Confirm"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${ process.env.REACT_APP_SERVER_URL } /users/admin/${ user._id }`, {
+                fetch(`${ process.env.REACT_APP_SERVER_URL }/users/admin/${ user._id }`, {
                     method: 'PATCH'
                 })
                     .then(res => res.json())
@@ -51,7 +51,7 @@ const AllUsers = () => {
             confirmButtonText: "Confirm"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${ process.env.REACT_APP_SERVER_URL } /users/${ id }`, {
+                fetch(`${ process.env.REACT_APP_SERVER_URL }/users/${ id }`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -68,8 +68,6 @@ const AllUsers = () => {
                             refetch()
                         }
                     })
-
-
             }
         })
     }
