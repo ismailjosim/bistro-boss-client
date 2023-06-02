@@ -54,8 +54,6 @@ const Shop = () => {
     const saladItem = menu.filter(item => item.category === "salad").map((item, index) => <ShopCard key={ index } item={ item } />)
     const soupItem = menu.filter(item => item.category === "soup").map((item, index) => <ShopCard key={ index } item={ item } />)
 
-
-    console.log(tabIndex);
     return (
         <main>
             <PageHeading bannerImg={ bannerImg } primary={ "Our shop" } secondary={ "would you like to try a dish?" } />

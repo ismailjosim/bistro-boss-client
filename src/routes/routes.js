@@ -7,19 +7,18 @@ import ErrorPage from '../utils/ErrorPage';
 import OurMenu from '../Pages/OurMenu';
 import Shop from '../Pages/Shop';
 import Dashboard from '../Layouts/Dashboard';
-import UserHome from '../Pages/Dashboard/UserHome';
 import Reservation from '../Pages/Dashboard/User/Reservation';
 import PaymentHistory from '../Pages/Dashboard/User/PaymentHistory';
 import MyCart from '../Pages/Dashboard/User/MyCart';
 import AddReview from '../Pages/Dashboard/User/AddReview';
 import MyBooking from '../Pages/Dashboard/User/MyBooking';
 import PrivateRoutes from '../Private/PrivateRoutes';
-import AdminHome from '../Pages/Dashboard/Admin/AdminHome';
 import AddItems from '../Pages/Dashboard/Admin/AddItems';
 import ManageItems from '../Pages/Dashboard/Admin/ManageItems';
 import ManageBookings from '../Pages/Dashboard/Admin/ManageBookings';
 import AllUsers from '../Pages/Dashboard/Admin/AllUsers';
 import AdminRoutes from '../Private/AdminRoutes';
+import DashboardHome from '../Pages/Dashboard/DashboardHome';
 
 export const router = createBrowserRouter([
     {
@@ -59,11 +58,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '',
-                element: <UserHome />
+                element: <DashboardHome />
             },
             {
                 path: 'home',
-                element: <UserHome />
+                element: <DashboardHome />
             },
             {
                 path: 'reservation',
@@ -87,14 +86,6 @@ export const router = createBrowserRouter([
             },
 
             // Admin routes
-            {
-                path: '',
-                element: <AdminRoutes><AdminHome /></AdminRoutes>
-            },
-            {
-                path: 'home',
-                element: <AdminRoutes><AdminHome /></AdminRoutes>
-            },
             {
                 path: 'additems',
                 element: <AdminRoutes><AddItems /></AdminRoutes>

@@ -3,10 +3,11 @@ import { BsFillCartFill, BsStarFill } from 'react-icons/bs';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { GiWallet } from 'react-icons/gi';
 import { MdWifiCalling3 } from 'react-icons/md';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const UserHome = () => {
-    const { user } = useAuth()
+    const { user } = useAuth();
+
     return (
         <section>
             <h3 className='text-3xl font-semibold font-cinzel text-center md:text-left'>Hi, Welcome Back!</h3>
