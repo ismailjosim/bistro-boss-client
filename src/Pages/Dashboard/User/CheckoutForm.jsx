@@ -1,13 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { VscError } from 'react-icons/vsc'
+import { BsFillCheckCircleFill } from 'react-icons/bs'
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useAuth from '../../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
-const CheckoutForm = () => {
-    const [cardError, setCardError] = useState(null)
+const CheckoutForm = ({ price, cart }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const { user } = useAuth();
+    const [cardError, setCardError] = useState(null)
+    const [confirmCardError, setConfirmCardError] = useState(null)
+
+    const [axiosSecure] = useAxiosSecure();
+    const [clientSecret, setClientSecret] = useState('');
+    const [processing, setProcessing] = useState(false)
+    const [transactionId, setTransactionId] = useState(null)
+
+
+    useEffect(() => {
+        axiosSecure.post('/create-payment-intent', { price })
+            .then(res => {
+                console.log(res.data.clientSecret);
+                setClientSecret(res.data.clientSecret);
+            })
+
+    }, [price, axiosSecure])
+
+
+
+
 
 
     const handleSubmit = async (e) => {
@@ -23,21 +48,67 @@ const CheckoutForm = () => {
             return
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        // check card info with stripe apis
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card
         })
 
         if (error) {
-            console.log('Error found', error);
             setCardError(error.message)
         } else {
-            console.log("payment details:", paymentMethod);
-
+            setCardError(null)
         }
 
+        // set processing = true then the button will be active
+        setProcessing(true)
 
 
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: user?.displayName || 'Unknown',
+                    email: user?.email || 'Unknown'
+                }
+            }
+        })
+        if (confirmError) {
+            setConfirmCardError(confirmError)
+        }
+        // set processing = false to disabled the button
+        setProcessing(false)
+        // check payment status
+        if (paymentIntent.status === 'succeeded') {
+            const transactionId = paymentIntent.id;
+            setTransactionId(transactionId)
+
+            // save payment info to the server
+            if (cart) {
+                const payment = {
+                    user: user?.name,
+                    email: user?.email,
+                    transactionId,
+                    price,
+                    quantity: cart?.length,
+                    items: cart?.map(item => item._id),
+                    itemsName: cart?.map(item => item.name)
+                }
+                axiosSecure.post('/payments', payment)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Payment Successful ✅',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
+            }
+        }
     }
 
 
@@ -65,14 +136,23 @@ const CheckoutForm = () => {
                     />
                 </div>
                 <div className='flex justify-end mt-5'>
-                    <button className='btn btn-primary btn-sm text-white' type="submit" disabled={ !stripe }>
+                    <button className='btn btn-primary btn-sm text-white' type="submit" disabled={ !stripe || !clientSecret || processing }>
                         Proceed To Payment
                     </button>
                 </div>
             </form>
             { cardError && <div className="alert alert-error text-white font-semibold mt-5">
                 <VscError />
+
                 <span>{ cardError }</span>
+            </div> }
+            { transactionId && <div className="alert-success text-white font-semibold mt-5 flex items-center gap-2 p-2 rounded-md">
+                <BsFillCheckCircleFill />
+                <p className='flex'>
+                    <span>Payment Successfully!. </span>
+                    <span>Transaction ID: { transactionId }</span>
+                </p>
+
             </div> }
         </>
     );

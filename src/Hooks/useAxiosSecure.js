@@ -3,13 +3,16 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import useAuth from './useAuth';
 
+// here we keep axiosSecure outside of the function so that i can create any instances.
+const axiosSecure = axios.create({
+    baseURL: `${ process.env.REACT_APP_SERVER_URL }`
+})
+
 const useAxiosSecure = () => {
     const { userLogout } = useAuth();
     const navigate = useNavigate()
 
-    const axiosSecure = axios.create({
-        baseURL: `${ process.env.REACT_APP_SERVER_URL }`
-    })
+
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
             const token = localStorage.getItem('access-token');
