@@ -97,7 +97,7 @@ const AddItems = () => {
                         </div>
                         <div className="form-control w-full">
                             <label htmlFor="name" className="label">
-                                <span className="label-text">Price*</span>
+                                <span className="label-text">Photo*</span>
                             </label>
                             <input
                                 type="file"

@@ -8,7 +8,7 @@ const stripePromise = loadStripe(`${ process.env.REACT_APP_Stripe_Key }`);
 const Payment = () => {
     const { cart } = useCart();
     const total = cart.reduce((sum, item) => item.price + sum, 0);
-    const price = parseFloat(total.toFixed(2))
+    const price = parseInt(total.toFixed(2))
 
 
 

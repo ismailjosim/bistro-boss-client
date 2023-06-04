@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from './useAxiosSecure';
 
 const useMenu = () => {
-
     const [axiosSecure] = useAxiosSecure();
 
     // Fetch data with axios api
@@ -11,10 +10,7 @@ const useMenu = () => {
             const res = await axiosSecure('/menu');
             return res.data;
         },
-
     })
-
-
 
     return [menu, refetch, isError, error, isLoading]
 

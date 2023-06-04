@@ -5,6 +5,7 @@ import { BsFillTrash3Fill } from 'react-icons/bs';
 import { BiEdit } from 'react-icons/bi';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const ManageItems = () => {
     const [menu, refetch] = useMenu();
@@ -14,16 +15,37 @@ const ManageItems = () => {
     const handleMenuUpdate = (item) => {
         console.log(item);
     };
-
     const handleMenuDelete = (id) => {
         // Delete the item with the specified ID
-        axiosSecure.delete(`/menu/${ id }`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    console.log(res.data);
-                    refetch()
-                }
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You Want to Delete ⚠️`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Confirm"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/menu/${ id }`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Item Deleted Successfully 🎉🎉',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            refetch()
+                        }
+                    })
+            }
+        })
+
+
+
+
 
     };
 
