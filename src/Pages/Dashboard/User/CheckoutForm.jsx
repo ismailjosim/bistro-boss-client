@@ -24,7 +24,6 @@ const CheckoutForm = ({ price, cart }) => {
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price })
             .then(res => {
-                console.log(res.data.clientSecret);
                 setClientSecret(res.data.clientSecret);
             })
 
@@ -96,7 +95,6 @@ const CheckoutForm = ({ price, cart }) => {
                 }
                 axiosSecure.post('/payments', payment)
                     .then(res => {
-                        console.log(res.data);
                         if (res.data.insertedId) {
                             Swal.fire({
                                 position: 'center',

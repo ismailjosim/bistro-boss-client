@@ -23,7 +23,7 @@ const AddItems = () => {
                     // Post data using axios secure for admin validation
                     axiosSecure.post('/menu', formData)
                         .then(data => {
-                            console.log("data posting successfully!");
+
                         })
                 }
             })

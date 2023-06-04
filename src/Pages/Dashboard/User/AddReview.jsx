@@ -12,7 +12,7 @@ const AddReview = () => {
         const suggestion = form.suggestion.value;
         const message = form.message.value;
         const data = { name, suggestion, message };
-        console.log(data);
+
     }
 
 

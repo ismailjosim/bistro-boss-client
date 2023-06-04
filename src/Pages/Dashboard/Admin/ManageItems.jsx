@@ -12,10 +12,10 @@ const ManageItems = () => {
     const [axiosSecure] = useAxiosSecure();
 
 
-    const handleMenuUpdate = (item) => {
-        console.log(item);
+    const handleMenuUpdate = item => {
+        const menuItem = item;
     };
-    const handleMenuDelete = (id) => {
+    const handleMenuDelete = id => {
         // Delete the item with the specified ID
         Swal.fire({
             title: 'Are you sure?',

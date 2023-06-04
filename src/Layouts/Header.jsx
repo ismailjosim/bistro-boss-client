@@ -32,7 +32,7 @@ const Header = () => {
     const handleUserRemove = () => {
         userLogout()
             .then(() => { })
-            .catch(err => console.log(err.message))
+            .catch(err => { })
     }
 
     const largeDeviceMenuItems = <>

@@ -44,7 +44,7 @@ const Login = () => {
                         })
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => { })
     }
 
     const handleGithubLogin = () => {
@@ -55,7 +55,7 @@ const Login = () => {
                     navigateNow();
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => {})
     }
 
     const handleUserLogin = e => {

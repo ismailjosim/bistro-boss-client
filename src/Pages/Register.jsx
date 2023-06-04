@@ -45,7 +45,7 @@ const Register = () => {
                         })
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => { })
     }
 
     const handleGithubLogin = () => {
@@ -56,7 +56,7 @@ const Register = () => {
                     navigateNow();
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => { })
     }
 
     const handleUserRegister = e => {

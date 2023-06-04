@@ -22,7 +22,6 @@ const MyCart = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        console.log("Item delete successfully!");
                         refetch()
                     }
 
