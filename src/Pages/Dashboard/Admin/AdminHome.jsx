@@ -1,13 +1,33 @@
-import React from 'react';
 import { TbChefHat, TbTruckDelivery } from 'react-icons/tb';
 import { BsFillCartFill, BsStarFill } from 'react-icons/bs';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { GiWallet } from 'react-icons/gi';
 import { IoIosPeople } from 'react-icons/io';
+
 import PieChart from '../../../components/admin/PieChart';
+import useAuth from '../../../Hooks/useAuth'
+import { useQuery } from '@tanstack/react-query'
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+
+
+
+
 
 const AdminHome = () => {
     // background: linear - gradient(90deg, #BB34F5 0 %, #FCDBFF 100 %);
+    const { user, loading } = useAuth();
+    const [axiosSecure] = useAxiosSecure()
+
+    const { isLoading, isError, data: stats = [], } = useQuery(['carts', user?.email], {
+        queryFn: async () => {
+            if (!loading && user?.email) {
+                const res = await axiosSecure(`/admin-stats?email`);
+                return res.data;
+            }
+        },
+        enabled: !loading && !!user?.email // Enable the query only when not loading and user email is available
+        // enabled: !!user?.email && !!localStorage.getItem("tokenName"),
+    });
 
     return (
         <section>
@@ -18,7 +38,7 @@ const AdminHome = () => {
                         <GiWallet size={ 60 }></GiWallet>
                     </div>
                     <div>
-                        <p className="text-4xl font-bold">1000</p>
+                        <p className="text-4xl font-bold">{ stats && stats.revenue }</p>
                         <h2 className="text-2xl capitalize">Revenue</h2>
                     </div>
                 </div>
@@ -27,7 +47,7 @@ const AdminHome = () => {
                         <IoIosPeople size={ 60 } />
                     </div>
                     <div>
-                        <p className="text-4xl font-bold">1500</p>
+                        <p className="text-4xl font-bold">{ stats && stats.customers }</p>
                         <h2 className="text-2xl capitalize">Customers</h2>
                     </div>
                 </div>
@@ -36,7 +56,7 @@ const AdminHome = () => {
                         <TbChefHat size={ 60 } />
                     </div>
                     <div>
-                        <p className="text-4xl font-bold">103</p>
+                        <p className="text-4xl font-bold">{ stats && stats.products }</p>
                         <h2 className="text-2xl capitalize">Products</h2>
                     </div>
                 </div>
@@ -45,7 +65,7 @@ const AdminHome = () => {
                         <TbTruckDelivery size={ 60 } />
                     </div>
                     <div>
-                        <p className="text-4xl font-bold">500</p>
+                        <p className="text-4xl font-bold">{ stats && stats.orders }</p>
                         <h2 className="text-2xl capitalize">Orders</h2>
                     </div>
                 </div>

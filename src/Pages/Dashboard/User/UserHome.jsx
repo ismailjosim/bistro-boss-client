@@ -10,7 +10,7 @@ const UserHome = () => {
 
     return (
         <section>
-            <h3 className='text-3xl font-semibold font-cinzel text-center md:text-left'>Hi, Welcome Back!</h3>
+            <h3 className='text-3xl font-semibold font-cinzel text-center md:text-left'>Hi, Welcome Back { user && user.displayName }</h3>
             <div className="grid lg:grid-cols-3 mt-5 mx-auto gap-4 text-white">
                 <div className="rounded-lg p-5 flex justify-center items-center gap-5" style={ { backgroundImage: 'linear-gradient(90deg, #BB34F5 0%, #FCDBFF 100%)' } }>
                     <div>

@@ -46,7 +46,7 @@ const Dashboard = () => {
                                 <>
                                     <>
                                         <li>
-                                            <NavLink className={ style } to="/dashboard/home">
+                                            <NavLink className={ style } to="/dashboard/adminhome">
                                                 <AiFillHome />
                                                 <span>Admin Home</span>
                                             </NavLink>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                                 :
                                 <>
                                     <li>
-                                        <NavLink className={ style } to="/dashboard/home">
+                                        <NavLink className={ style } to="/dashboard/userhome">
                                             <AiFillHome />
                                             <span>User Home</span>
                                         </NavLink>

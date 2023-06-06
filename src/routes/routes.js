@@ -18,8 +18,9 @@ import ManageItems from '../Pages/Dashboard/Admin/ManageItems';
 import ManageBookings from '../Pages/Dashboard/Admin/ManageBookings';
 import AllUsers from '../Pages/Dashboard/Admin/AllUsers';
 import AdminRoutes from '../Private/AdminRoutes';
-import DashboardHome from '../Pages/Dashboard/DashboardHome';
 import Payment from '../Pages/Dashboard/User/Payment';
+import AdminHome from '../Pages/Dashboard/Admin/AdminHome';
+import UserHome from '../Pages/Dashboard/User/UserHome';
 
 export const router = createBrowserRouter([
     {
@@ -58,12 +59,8 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
         children: [
             {
-                path: '',
-                element: <DashboardHome />
-            },
-            {
-                path: 'home',
-                element: <DashboardHome />
+                path: 'userhome',
+                element: <UserHome />
             },
             {
                 path: 'reservation',
@@ -91,6 +88,11 @@ export const router = createBrowserRouter([
             },
 
             // Admin routes
+
+            {
+                path: 'adminhome',
+                element: <AdminRoutes><AdminHome /></AdminRoutes>
+            },
             {
                 path: 'additems',
                 element: <AdminRoutes><AddItems /></AdminRoutes>
