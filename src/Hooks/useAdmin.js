@@ -8,14 +8,12 @@ const useAdmin = () => {
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
         queryKey: ['isAdmin', user?.email],
         queryFn: async () => {
-            if (user?.email) {
-                const res = await axiosSecure.get(`/users/admin/${ user.email }`);
-                return res.data.admin;
-            }
-            return false; // Return a default value if user.email is null or undefined
+            const res = await axiosSecure.get(`/users/admin/${ user.email }`);
+            return res.data.admin;
         },
     });
     return [isAdmin, isAdminLoading];
 };
 
 export default useAdmin;
+

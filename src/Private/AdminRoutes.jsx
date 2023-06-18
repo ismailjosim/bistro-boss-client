@@ -16,6 +16,7 @@ const AdminRoutes = ({ children }) => {
         )
     }
 
+
     return (
         user && isAdmin ? <div>{ children }</div> : <Navigate to={ '/' } state={ { from: location } } replace />
     );

@@ -69,6 +69,10 @@ const Header = () => {
                             { largeDeviceMenuItems }
                         </ul>
                     </div>
+
+
+
+
                     { user?.email ?
                         <div className='flex gap-3 items-center dropdown dropdown-bottom dropdown-end'>
                             <div tabIndex={ 0 } className="tooltip tooltip-left tooltip-primary" data-tip={ user.displayName }>

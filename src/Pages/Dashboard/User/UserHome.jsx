@@ -8,6 +8,8 @@ import useAuth from '../../../Hooks/useAuth';
 const UserHome = () => {
     const { user } = useAuth();
 
+
+
     return (
         <section>
             <h3 className='text-3xl font-semibold font-cinzel text-center md:text-left'>Hi, Welcome Back { user && user.displayName }</h3>

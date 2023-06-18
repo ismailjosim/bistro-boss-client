@@ -10,6 +10,8 @@ const AddItems = () => {
     const { register, handleSubmit } = useForm();
 
     const AddMenuItem = data => {
+
+        console.log(data.image[0]);
         const formData = new FormData();
         formData.append('image', data.image[0]);
         fetch(imageHostingUrl, {
