@@ -23,6 +23,7 @@ const Login = () => {
         setTimeout(() => { navigate(from, { replace: true }) }, 1)
     }
 
+
     const handleGoogleLogin = () => {
         googleProviderLogin(googleProvider)
             .then(res => {
@@ -55,7 +56,7 @@ const Login = () => {
                     navigateNow();
                 }
             })
-            .catch(error => {})
+            .catch(error => { })
     }
 
     const handleUserLogin = e => {
@@ -85,11 +86,6 @@ const Login = () => {
                             <div>
                                 <div className={ inputStyle }>
                                     <input type="email" name='email' required placeholder="Your email or user name" className="w-full bg-transparent pb-3  border-b border-gray-300 outline-none invalid:border-primary transition text-primary" />
-                                </div>
-                            </div>
-                            <div>
-                                <div className={ inputStyle }>
-                                    <input type="password" name='password' required placeholder="Your Password" className="w-full bg-transparent pb-3  border-b border-gray-300 outline-none invalid:border-primary transition text-primary" />
                                 </div>
                             </div>
                             <div>

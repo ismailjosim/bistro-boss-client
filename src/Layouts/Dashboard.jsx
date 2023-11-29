@@ -26,6 +26,7 @@ const Dashboard = () => {
                 <div className="drawer-content mt-5 mx-5">
                     <Outlet />
                 </div>
+
                 <label htmlFor="my-drawer-2" className="absolute top-2 -left-2 text-2xl bg-primary pl-5 p-2 rounded-md text-white">
                     <ImMenu></ImMenu>
                 </label>

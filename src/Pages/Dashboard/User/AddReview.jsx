@@ -15,9 +15,6 @@ const AddReview = () => {
 
     }
 
-
-
-
     return (
         <div>
             <SectionHeading primary={ 'sharing is caring' } secondary={ 'give a review...' } />

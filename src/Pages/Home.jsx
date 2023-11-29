@@ -13,6 +13,10 @@ import About from '../components/Home/About';
 
 
 const Home = () => {
+
+
+
+
     return (
         <main>
             <Slider />

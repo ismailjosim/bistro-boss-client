@@ -45,6 +45,7 @@ const useAxiosSecure = () => {
 export default useAxiosSecure;
 
 /*
+// TODO: Using Normal fetch
 const fetchData = async () => {
   try {
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
