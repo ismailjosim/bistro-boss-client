@@ -26,7 +26,6 @@ const CheckoutForm = ({ price, cart }) => {
             .then(res => {
                 setClientSecret(res.data.clientSecret);
             })
-
     }, [price, axiosSecure])
 
 
