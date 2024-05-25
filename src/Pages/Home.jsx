@@ -26,6 +26,7 @@ const Home = () => {
             <CallToAction />
             <ChefsChoice />
             <About />
+
         </main>
     );
 };
