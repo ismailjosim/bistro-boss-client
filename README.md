@@ -1,8 +1,6 @@
-<!   # REACT_APP_SERVER_URL=<<https://bistro> boss server sigma.vercel.app>   >
-
 # Welcome to Bistro Boss: A Restaurant Website With React
 
-### Technologies That used To build this website
+## Technologies That used To build this website
 
 * ReactJS
 * Tailwind CSS

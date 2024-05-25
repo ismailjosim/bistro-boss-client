@@ -33,7 +33,7 @@ const useAxiosSecure = () => {
       }
     )
 
-  }, [userLogout, navigate, axiosSecure])
+  }, [userLogout, navigate])
 
 
 
