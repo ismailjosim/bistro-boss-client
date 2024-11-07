@@ -58,7 +58,6 @@ const Slider = () => {
 									</div>
 								</div>
 							</div>
-							<img src={thumbnail} alt='' />
 						</div>
 					)
 				})}
