@@ -11,7 +11,7 @@ const Header = () => {
 	const [isAdmin] = useAdmin()
 	const [isScrolled, setIsScrolled] = useState(false)
 	const { cart } = useCart()
-	const [active, setActive] = useState(null)
+	// const [active, setActive] = useState(null)
 
 	// add scrolling effect
 	useEffect(() => {
@@ -32,31 +32,31 @@ const Header = () => {
 
 	const handleUserRemove = () => {
 		userLogout()
-			.then(() => { })
-			.catch((err) => { })
+			.then(() => {})
+			.catch((err) => {})
 	}
 
 	const largeDeviceMenuItems = (
 		<>
 			<li>
-				<NavLink className={ style } to='/'>
+				<NavLink className={style} to='/'>
 					Home
 				</NavLink>
 			</li>
 			<li>
-				<NavLink className={ style } to='/menu'>
+				<NavLink className={style} to='/menu'>
 					our menu
 				</NavLink>
 			</li>
 			<li>
-				<NavLink className={ style } to='/shop'>
+				<NavLink className={style} to='/shop'>
 					our shop
 				</NavLink>
 			</li>
 			<li>
 				<NavLink
-					className={ style }
-					to={ `${ isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome' }` }
+					className={style}
+					to={`${isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}`}
 				>
 					Dashboard
 				</NavLink>
@@ -69,7 +69,7 @@ const Header = () => {
 				>
 					<BsFillCartFill className='w-20' />
 					<div className='badge absolute -top-2 left-6 w-5 h-5 text-black bg-white border-white'>
-						{ cart?.length }
+						{cart?.length}
 					</div>
 				</span>
 			</li>
@@ -78,10 +78,11 @@ const Header = () => {
 
 	return (
 		<header
-			className={ `navbar border-b-2 ${ isScrolled
-				? 'bg-white text-black border-primary'
-				: 'bg-black/30 text-white border-transparent'
-				} h-20 font-semibold fixed z-10 transition-colors ease-in-out duration-300` }
+			className={`navbar border-b-2 ${
+				isScrolled
+					? 'bg-white text-black border-primary'
+					: 'bg-black/30 text-white border-transparent'
+			} h-20 font-semibold fixed z-10 transition-colors ease-in-out duration-300`}
 		>
 			<div className='navbar font-semibold lg:w-11/12 mx-auto'>
 				<div className='navbar-start'>
@@ -97,24 +98,24 @@ const Header = () => {
 				<div className='navbar-end'>
 					<div className='navbar-center hidden lg:flex'>
 						<ul className='menu menu-horizontal p-0 gap-3'>
-							{ largeDeviceMenuItems }
+							{largeDeviceMenuItems}
 						</ul>
 					</div>
-					{ user?.email ? (
+					{user?.email ? (
 						<div className='flex gap-3 items-center dropdown dropdown-bottom dropdown-end'>
 							<div
-								tabIndex={ 0 }
+								tabIndex={0}
 								className='tooltip tooltip-left tooltip-primary'
-								data-tip={ user.displayName }
+								data-tip={user.displayName}
 							>
 								<img
 									className='rounded-full w-12'
-									alt={ user.displayName }
-									src={ user.photoURL }
+									alt={user.displayName}
+									src={user.photoURL}
 								/>
 							</div>
 							<ul
-								tabIndex={ 0 }
+								tabIndex={0}
 								className='dropdown-content menu p-2 bg-white rounded-box w-52 flex flex-col gap-2'
 							>
 								<li className='list-none text-primary'>
@@ -126,9 +127,9 @@ const Header = () => {
 									</Link>
 								</li>
 								<li className='list-none text-primary'>
-									{ ' ' }
+									{' '}
 									<button
-										onClick={ handleUserRemove }
+										onClick={handleUserRemove}
 										className='btn btn-md rounded-md btn-outline btn-primary w-full hover:text-white'
 									>
 										Logout
@@ -143,9 +144,9 @@ const Header = () => {
 						>
 							Log In
 						</Link>
-					) }
+					)}
 					<div className='dropdown dropdown-bottom dropdown-end flex'>
-						<label tabIndex={ 0 } className='btn btn-ghost lg:hidden'>
+						<label tabIndex={0} className='btn btn-ghost lg:hidden'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								fill='none'
@@ -162,7 +163,7 @@ const Header = () => {
 							</svg>
 						</label>
 						<ul className='menu menu-compact dropdown-content mt-3 p-2 bg-slate-900 rounded-box text-white w-52'>
-							{ largeDeviceMenuItems }
+							{largeDeviceMenuItems}
 						</ul>
 					</div>
 				</div>

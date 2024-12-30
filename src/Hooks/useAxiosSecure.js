@@ -33,7 +33,7 @@ const useAxiosSecure = () => {
       }
     )
 
-  }, [userLogout, navigate, axiosSecure])
+  }, [userLogout, navigate])
 
 
 
@@ -44,27 +44,28 @@ const useAxiosSecure = () => {
 
 export default useAxiosSecure;
 
-/*
-// TODO: Using Normal fetch
-const fetchData = async () => {
-  try {
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('access-token')}`,
-      },
-    });
 
-    if (response.ok) {
-      const data = await response.json();
-      // Process the data here
-    } else if (response.status === 401 || response.status === 403) {
-      await userLogout();
-      navigate('/login');
-    } else {
-      throw new Error('Request failed.');
-    }
-  } catch (error) {
-    // Handle errors here
-  }
-};
-*/
+// TODO: Using Normal fetch
+// const fetchData = async () => {
+//   try {
+//     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}`, {
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem('access-token')}`,
+//       },
+//     });
+
+//     if (response.ok) {
+//       const data = await response.json();
+//       // Process the data here
+//     } else if (response.status === 401 || response.status === 403) {
+//       await userLogout();
+//       navigate('/login');
+//     } else {
+//       throw new Error('Request failed.');
+//     }
+//   } catch (error) {
+//     // Handle errors here
+//   }
+// };
+
+
