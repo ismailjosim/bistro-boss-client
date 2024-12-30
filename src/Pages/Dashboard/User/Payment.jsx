@@ -12,6 +12,7 @@ const Payment = () => {
 
 
 
+
     return (
         <section className='w-11/12 mx-auto min-h-[85vh] flex justify-center items-center'>
             <div>
@@ -20,8 +21,16 @@ const Payment = () => {
                     <CheckoutForm price={ price } cart={ cart } />
                 </Elements>
 
+
+
+
+
+
+
+
+
             </div>
-        </section>
+        </section >
     )
 };
 
