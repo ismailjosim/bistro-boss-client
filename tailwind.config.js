@@ -1,39 +1,40 @@
 module.exports = {
-  content: ["./src/**/*.{html,js,jsx, tsx}"],
-  theme: {
-    extend: {
-      borderRadius: {
-        'custom': '0 200px 200px 200px',
-      },
-    },
-  },
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
+	content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+	theme: {
+		extend: {
+			borderRadius: {
+				custom: '0 200px 200px 200px',
+			},
+		},
+	},
+	daisyui: {
+		themes: [
+			{
+				dineos: {
+					primary: '#FF6B35', // Vibrant Food-Tech Orange
 
-          "primary": "#D99904",
+					secondary: '#1F2937', // Dark Slate
 
-          "secondary": "#BB8506",
+					accent: '#FFC857', // Premium Gold
 
-          "accent": "#EEFF25",
+					neutral: '#111827', // Dashboard Dark
 
-          "neutral": "#1F2937",
+					'base-100': '#FFFFFF',
 
-          "base-100": "#ffffff",
+					'base-200': '#F8FAFC',
 
-          "info": "#f2efee",
+					'base-300': '#E2E8F0',
 
-          "success": "#17968B",
+					info: '#3B82F6',
 
-          "warning": "#D1A054",
+					success: '#10B981',
 
-          "error": "#E8646D",
-        },
-      },
-    ],
-  },
-  plugins: [
-    require("daisyui"),
-  ],
+					warning: '#F59E0B',
+
+					error: '#EF4444',
+				},
+			},
+		],
+	},
+	plugins: [require('daisyui')],
 }
