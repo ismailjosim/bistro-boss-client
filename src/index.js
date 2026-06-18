@@ -5,10 +5,11 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/routes';
 import AuthProvider from './contexts/AuthProvider';
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
+import NextThemeProvider from './providers/NextThemeProvider';
 // import 'sweetalert2/dist/sweetalert2.css';
 
 // Create a client
@@ -17,15 +18,13 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <QueryClientProvider client={ queryClient }>
-        <Toaster
-          position="top-right"
-          reverseOrder={ false }
-        />
-        <RouterProvider router={ router } />
-      </QueryClientProvider>
-    </AuthProvider>
+    <NextThemeProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Toaster position="top-right" reverseOrder={false} />
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </AuthProvider>
+    </NextThemeProvider>
   </React.StrictMode>
 );
-

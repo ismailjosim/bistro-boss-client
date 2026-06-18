@@ -1,24 +1,27 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from './useAxiosSecure';
 import useAuth from './useAuth';
 
-
 const useCart = () => {
-    const { user, loading } = useAuth();
-    const [axiosSecure] = useAxiosSecure();
+  const { user, loading } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
 
-    const { isLoading, isError, data: cart = [], error, refetch } = useQuery(['carts', user?.email], {
+  const {
+    isLoading,
+    isError,
+    data: cart = [],
+    error,
+    refetch,
+  } = useQuery(['carts', user?.email], {
+    queryFn: async () => {
+      const res = await axiosSecure(`/carts?email=${user.email}`);
+      return res.data;
+    },
+    enabled: !loading && !!user?.email, // Enable the query only when not loading and user email is available
+    // enabled: !!user?.email && !!localStorage.getItem("tokenName"),
+  });
 
-        queryFn: async () => {
-            const res = await axiosSecure(`/carts?email=${ user.email }`);
-            return res.data;
-        },
-        enabled: !loading && !!user?.email // Enable the query only when not loading and user email is available
-        // enabled: !!user?.email && !!localStorage.getItem("tokenName"),
-    });
-
-    return { cart, isError, isLoading, error, refetch }; // Return refetch as part of the object
-
+  return { cart, isError, isLoading, error, refetch }; // Return refetch as part of the object
 };
 
 export default useCart;
