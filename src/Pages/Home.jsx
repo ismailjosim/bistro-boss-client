@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import Slider from '../components/Home/Slider';
-=======
 import Slider from '../components/Home/Slider'
->>>>>>> 238f3646e0f7c316bdf0f3b8e05ac17a2fc8693b
 
 import '../CSS/custom.css'
 
@@ -16,7 +11,7 @@ import About from '../components/Home/About'
 
 const Home = () => {
 	return (
-		<main>
+		<>
 			<Slider />
 			<Categories />
 			<Info />
@@ -24,7 +19,7 @@ const Home = () => {
 			<CallToAction />
 			<ChefsChoice />
 			<About />
-		</main>
+		</>
 	)
 }
 

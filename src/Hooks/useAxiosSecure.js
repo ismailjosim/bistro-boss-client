@@ -67,5 +67,3 @@ export default useAxiosSecure;
 //     // Handle errors here
 //   }
 // };
-
-

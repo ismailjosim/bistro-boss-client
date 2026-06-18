@@ -25,14 +25,6 @@ const CheckoutForm = ({ price, cart }) => {
 		})
 	}, [price, axiosSecure])
 
-<<<<<<< HEAD
-    useEffect(() => {
-        axiosSecure.post('/create-payment-intent', { price })
-            .then(res => {
-                setClientSecret(res.data.clientSecret);
-            })
-    }, [price, axiosSecure])
-=======
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		setCardError(null)
@@ -40,7 +32,6 @@ const CheckoutForm = ({ price, cart }) => {
 		if (!stripe || !elements) {
 			return
 		}
->>>>>>> 238f3646e0f7c316bdf0f3b8e05ac17a2fc8693b
 
 		const card = elements.getElement(CardElement)
 		if (card === null) {
